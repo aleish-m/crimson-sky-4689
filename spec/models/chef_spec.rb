@@ -49,8 +49,9 @@ RSpec.describe Chef, type: :model do
     end
 
     it "#ingredients_used" do
-      expect(@chef_1.ingredients_used.pluck('ingredients.name')).to eq([@pork.name, @bbq_sauce.name, @bun.name, @chicken.name, @cheese.name, @wing_sauce.name, @wonton.name, @ranch.name])
-      expect(@chef_2.ingredients_used.pluck('ingredients.name')).to eq([@chicken.name, @pasta.name, @lemon.name, @white_wine.name])
+      # require "pry"; binding.pry
+      expect(@chef_1.ingredients_used.pluck('ingredients.name')).to include(@pork.name, @bbq_sauce.name, @bun.name, @chicken.name, @cheese.name, @wing_sauce.name, @wonton.name, @ranch.name)
+      expect(@chef_2.ingredients_used.pluck('ingredients.name')).to include(@chicken.name, @pasta.name, @lemon.name, @white_wine.name)
     end
   end
 end

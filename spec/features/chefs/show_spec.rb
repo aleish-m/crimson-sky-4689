@@ -72,6 +72,12 @@ RSpec.describe "Chef show page" do
           end
         end 
       end
+
+      it "I see the three most popular ingredients that the chef uses in their dishes (Popularity is based off of how many dishes use that ingredient)" do
+        visit chef_path(@chef_1)
+
+        expect(page).to have_content(@chef_1.favorite_ingredient)
+      end
     end
   end
 end
