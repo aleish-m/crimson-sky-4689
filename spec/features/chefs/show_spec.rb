@@ -16,7 +16,7 @@ RSpec.describe "Chef show page" do
         @bbq_sauce = Ingredient.create!(name: 'BBQ Sauce', calories: 100 )
         @bun = Ingredient.create!(name: 'Hamburger Bun', calories: 150 )
 
-        @cheese = Ingredient.create!(name: 'cheese', calories: 150 )
+        @cheese = Ingredient.create!(name: 'Cheese', calories: 150 )
         @wing_sauce = Ingredient.create!(name: 'Buffalo Wing Sauce', calories: 80 )
         @wonton = Ingredient.create!(name: 'Wonton Wrapers', calories: 20 )
         @ranch = Ingredient.create!(name: 'Ranch Dressing', calories: 180 )
@@ -44,7 +44,7 @@ RSpec.describe "Chef show page" do
 
       it "I see the name of that chef" do
         visit chef_path(@chef_1)
-        within("#chef-#{chef_1.id}-info").do
+        within("#chef-#{chef_1.id}-info") do
           expect(page).to have_content(@chef_1.name)
           expect(page).to_not have_content(@chef_2.name)
         end
@@ -65,6 +65,7 @@ RSpec.describe "Chef show page" do
           expect(page).to have_content(@dish_2.ingredients.all?{|ingredient| ingredient.name})
         end 
       end
+
     end
   end
 end
