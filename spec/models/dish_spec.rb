@@ -41,8 +41,8 @@ RSpec.describe Dish, type: :model do
       end
 
     it "#calorie_count" do
-      expect(dish_1.calorie_count).to eq(200)
-      expect(dish_2.calorie_count).to eq(440)
+      expect(@dish_1.calorie_count).to eq(300)
+      expect(@dish_2.calorie_count).to eq(440)
     end
   end
 end
