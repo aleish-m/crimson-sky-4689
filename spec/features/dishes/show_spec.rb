@@ -56,7 +56,7 @@ RSpec.describe "Dish show page" do
 
         within("#dish-#{@dish_1.id}-info") do
           expect(page).to have_content(@dish_1.chef.name)
-          expect(page).to have_content(@dish_2.chef.name)
+          expect(page).to_not have_content(@dish_2.chef.name)
         end
       end
 
