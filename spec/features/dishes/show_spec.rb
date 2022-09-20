@@ -60,6 +60,15 @@ RSpec.describe "Dish show page" do
         end
       end
 
+      it "I see the total calorie count for that dish" do
+        visit dish_path(@dish_1)
+
+        within("#dish-#{@dish_1.id}-info") do
+          expect(page).to have_content(@dish_1.calorie_count)
+          expect(page).to_not have_content(@dish_2.calorie_count)
+        end
+      end
+
     end
   end
 end
