@@ -9,6 +9,25 @@ RSpec.describe "Dish show page" do
 
         @dish_1 = @chef_1.dishes.create!(name: 'Pulled Pork', description: 'Pulled pork sandwich')
         @dish_2 = @chef_2.dishes.create!(name: 'Chicken Saltamiboca', description: 'Chicken in a Lemon sauce with Pasta')
+
+
+        @pork = Ingredient.create!(name: 'Pork', calories: 50 )
+        @bbq_sauce = Ingredient.create!(name: 'BBQ Sauce', calories: 100 )
+        @bun = Ingredient.create!(name: 'Hamburger Bun', calories: 150 )
+
+        @chicken = Ingredient.create!(name: 'Chicken', calories: 50 )
+        @pasta = Ingredient.create!(name: 'Angel Hair Pasta', calories: 300 )
+        @lemon = Ingredient.create!(name: 'Lemon', calories: 10 )
+        @white_wine = Ingredient.create!(name: 'White Wine', calories: 80 )
+
+        @dish_1.ingredients << @pork
+        @dish_1.ingredients << @bbq_sauce
+        @dish_1.ingredients << @bun
+
+        @dish_2.ingredients << @chicken
+        @dish_2.ingredients << @pasta
+        @dish_2.ingredients << @lemon
+        @dish_2.ingredients << @white_wine
       end
 
       it "I see the dish’s name and description" do
